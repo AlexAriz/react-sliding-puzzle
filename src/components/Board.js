@@ -35,7 +35,7 @@ const Board = React.createClass({
 
   moveSlot(event) {
     var currentSelectedIndex = this.state.selectedSlotIndex;
-    var nextSelectedIndex = this.state.selectedSlotIndex;
+    var nextSelectedIndex = currentSelectedIndex;
 
     switch(event.keyCode) {
       case KEY_UP:
@@ -62,7 +62,7 @@ const Board = React.createClass({
         break;
     }
 
-    var currentBoard = this.state.currentBoard
+    var currentBoard = [...this.state.currentBoard]
     if (currentBoard[nextSelectedIndex] === null) {
       currentBoard[nextSelectedIndex] = currentBoard[currentSelectedIndex];
       currentBoard[currentSelectedIndex] = null;

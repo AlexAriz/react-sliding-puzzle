@@ -1,0 +1,47 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.App {
+  padding: 5%;
+}
+
+.board {
+  position: absolute;
+  width: 50%;
+  height: 60%;
+  border: solid 20px black;
+  border-radius: 20px;
+}
+
+.slots {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+  margin-bottom: 2em;
+}
+
+.slot {
+  flex-grow: 1;
+  width: 30%;
+  position: relative;
+  border-top: solid lightgray 5px;
+  border-left: solid lightgray 5px;
+  border-bottom: solid darkgray 5px;
+  border-right: solid darkgray 5px;
+}
+
+.slot .content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3em;
+}
+
+.slot.empty {
+  background: black;
+  border: solid black 5px;
+}

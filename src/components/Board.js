@@ -23,13 +23,12 @@ const Board = React.createClass({
     window.removeEventListener('keydown', this.moveSlot);
   },
 
-  onSelectSlot(index) {
-    var isSlotEmpty = this.state.currentBoard[index] === null;
-    if (!isSlotEmpty) {
-      this.setState({selectedSlotIndex: index});
-    }
-    else {
-      this.setState({selectedSlotIndex: null});
+  onSelectSlot(newIndex) {
+    var isNewSlotEmpty = Boolean(this.state.currentBoard[newIndex] === null);
+    var isSameSlot = Boolean(this.state.selectedSlotIndex === newIndex)
+    
+    if (!isSameSlot && !isNewSlotEmpty) {
+        this.setState({selectedSlotIndex: newIndex});
     }
   },
 

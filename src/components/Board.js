@@ -16,7 +16,11 @@ const Board = React.createClass({
   },
 
   componentDidMount() {
-    window.addEventListener('keydown', (event) => {this.moveSlot(event.keyCode)})
+    window.addEventListener('keydown', this.moveSlot);
+  },
+
+  componentWillUnmount() {
+    window.removeEventListener('keydown', this.moveSlot);
   },
 
   onSelectSlot(index) {
@@ -29,11 +33,11 @@ const Board = React.createClass({
     }
   },
 
-  moveSlot(keyCode) {
+  moveSlot(event) {
     var currentSelectedIndex = this.state.selectedSlotIndex;
     var nextSelectedIndex = this.state.selectedSlotIndex;
 
-    switch(keyCode) {
+    switch(event.keyCode) {
       case KEY_UP:
         if (nextSelectedIndex >= 3) {
           nextSelectedIndex -= 3;

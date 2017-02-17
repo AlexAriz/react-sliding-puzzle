@@ -1,5 +1,4 @@
 import React from 'react';
-import jQuery from 'jquery';
 
 import Slot from './Slot';
 
@@ -17,11 +16,7 @@ const Board = React.createClass({
   },
 
   componentDidMount() {
-    var $window = jQuery(window);
-
-    $window.keydown((event)=> {
-      this.moveSlot(event.keyCode);
-    });
+    window.addEventListener('keydown', (event) => {this.moveSlot(event.keyCode)})
   },
 
   onSelectSlot(index) {
